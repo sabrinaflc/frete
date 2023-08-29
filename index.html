@@ -79,6 +79,8 @@
             fecharResultadoButton.addEventListener('click', function() {
                 resultadoTexto.innerHTML = '';
                 fecharResultadoButton.style.display = 'none';
+                cepOrigemInput.value = ''; 
+                cepDestinoInput.value = '';
             });
 
             function isValidCep(cep) {
