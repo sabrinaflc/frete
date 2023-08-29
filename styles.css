@@ -117,7 +117,7 @@ footer img {
     cursor: pointer;
 }
 
-    @media (max-width: 414px) {
+@media (max-width: 414px) {
     #calculator {
         max-width: 100%;
         padding: 20px;
@@ -138,13 +138,15 @@ footer img {
     }
 
     footer {
-        flex-direction: row;
+        flex-direction: column; /* Change flex-direction to column */
         text-align: center;
     }
 
     footer img {
-        margin: 10px;
-        margin-bottom: 157%;
+        margin: 8px auto; /* Center align the images horizontally */
+        display: block; /* Make the images block-level elements */
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
     }
-    
 }
