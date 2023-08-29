@@ -136,12 +136,13 @@ footer img {
     }
 
     footer {
-        flex-direction: column;
+        flex-direction: row;
         text-align: center;
     }
 
     footer img {
-        margin: 5px;
+        margin: 10px;
+        margin-bottom: 67%;
     }
     
 }
