@@ -4,7 +4,7 @@
     <title>Calculadora de Frete</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="script.js"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add viewport meta tag -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
 
@@ -29,7 +29,7 @@
             flex-direction: column;
         }
 
-        #main{
+        #main {
             height: 100%;
             width: 100%;
             display: flex;
@@ -95,16 +95,15 @@
             color: #333;
         }
 
-        /* Adicione a classe "footer" ao seu rodapé */
         footer {
-        color: white;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        margin-top: auto;
-        padding: 20px; /* Adiciona espaço entre o conteúdo e o footer */
+            color: white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            margin-top: auto;
+            padding: 20px;
         }
 
         footer img {
@@ -113,21 +112,52 @@
             margin: 0 10px;
             cursor: pointer;
         }
-    </style> 
+
+        /* Media query for screens with a maximum width of 414px (iPhone XR) */
+        @media (max-width: 414px) {
+            #calculator {
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            label,
+            input {
+                font-size: 14px;
+            }
+
+            button {
+                margin-top: 8%;
+                font-size: 16px;
+            }
+
+            footer {
+                flex-direction: row;
+                text-align: center;
+            }
+
+            footer img {
+                margin: 5px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="main">
         <div id="calculator">
             <h1>Calculadora de Frete</h1>
-    
+
             <div id="container">
                 <div id="frete-form">
                     <label for="cep-origem">CEP de Origem:</label>
                     <input type="text" id="cep-origem" placeholder="Digite o CEP de origem" required><br>
-                    
+
                     <label for="cep-destino">CEP de Destino:</label>
                     <input type="text" id="cep-destino" placeholder="Digite o CEP de destino" required>
-                    
+
                     <button type="button" id="calcular-frete">Calcular Frete</button>
                 </div>
             </div>
@@ -135,12 +165,10 @@
         </div>
     </div>
 
-    <!-- Adicione a classe "footer" ao seu rodapé -->
     <footer class="footer">
         <a href="https://www.linkedin.com/in/sabrina-lins-7b944a211/" target="_blank"><img src="link.png" alt="LinkedIn"></a>
         <a href="https://www.instagram.com/ssabrinalins/" target="_blank"><img src="insta.png" alt="Instagram"></a>
         <a href="https://github.com/sabrinaflc" target="_blank"><img src="git.png" alt="GitHub"></a>
-        <!-- <p>@ssabrinalins</p> -->
     </footer>
 </body>
 </html>
