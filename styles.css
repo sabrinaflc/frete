@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
+:root {
+    --linear-gradient: linear-gradient(90deg, #f8d238, #add928, #8f951d);
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #262626;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+#main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#calculator {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.323);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 400px;
+    height: min-content;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+
+button {
+    margin-top: 12%;
+    background: var(--linear-gradient);
+    border: none;
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button.close {
+    font-size: 14px;
+    max-width: 70px;
+    max-height: 90px;
+    margin: 20px auto;
+    background: rgb(48, 48, 48);
+    display: flex;
+    justify-content: center;
+}
+
+button.again {
+    font-size: 14px;
+    max-width: 70px;
+    max-height: 90px;
+    margin: 20px auto;
+    background: yellowgreen;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+}
+
+footer {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: auto;
+    padding: 20px;
+}
+
+footer img {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+    @media (max-width: 414px) {
+    #calculator {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    label,
+    input {
+        font-size: 14px;
+    }
+
+    button {
+        margin-top: 8%;
+        font-size: 16px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer img {
+        margin: 5px;
+    }
+    
+}
