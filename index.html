@@ -36,43 +36,51 @@
     <a href="https://github.com/sabrinaflc" target="_blank"><img src="git.png" alt="GitHub"></a>
 </footer>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    const calculateButton = document.getElementById('calcular-frete');
-    const cepOrigemInput = document.getElementById('cep-origem');
-    const cepDestinoInput = document.getElementById('cep-destino');
-    const resultadoFrete = document.getElementById('resultado-frete');
-    const resultadoTexto = document.getElementById('resultado-texto');
-    const fecharResultadoButton = document.getElementById('fechar-resultado');
+     document.addEventListener('DOMContentLoaded', function() {
+            const calculateButton = document.getElementById('calcular-frete');
+            const cepOrigemInput = document.getElementById('cep-origem');
+            const cepDestinoInput = document.getElementById('cep-destino');
+            const resultadoFrete = document.getElementById('resultado-frete');
+            const resultadoTexto = document.getElementById('resultado-texto');
+            const fecharResultadoButton = document.getElementById('fechar-resultado');
 
-    cepOrigemInput.addEventListener('input', function(event) {
-        const input = event.target;
-        input.value = input.value.replace(/[^0-9-]/g, '');
-    });
+            cepOrigemInput.addEventListener('input', function(event) {
+                const input = event.target;
+                input.value = input.value.replace(/[^0-9-]/g, ''); // Remove non-numeric and non-hyphen characters
+                input.value = input.value.slice(0, 9); // Limit to 8 digits and 1 hyphen
+            });
 
-    cepDestinoInput.addEventListener('input', function(event) {
-        const input = event.target;
-        input.value = input.value.replace(/[^0-9-]/g, '');
-    });
+            cepDestinoInput.addEventListener('input', function(event) {
+                const input = event.target;
+                input.value = input.value.replace(/[^0-9-]/g, ''); // Remove non-numeric and non-hyphen characters
+                input.value = input.value.slice(0, 9); // Limit to 8 digits and 1 hyphen
+            });
 
-    calculateButton.addEventListener('click', function() {
-        const cepOrigemValue = cepOrigemInput.value.trim();
-        const cepDestinoValue = cepDestinoInput.value.trim();
+            calculateButton.addEventListener('click', function() {
+                const cepOrigemValue = cepOrigemInput.value.trim();
+                const cepDestinoValue = cepDestinoInput.value.trim();
 
-        if (cepOrigemValue === '' || cepDestinoValue === '') {
-            resultadoTexto.innerHTML = 'Preencha ambos os campos para calcular o frete.';
-            fecharResultadoButton.style.display = 'block';
-        } else {
-            resultadoTexto.innerHTML = 'Resultado do cálculo do frete.';
-            fecharResultadoButton.style.display = 'block';
-        }
-    });
+                if (cepOrigemValue === '' || cepDestinoValue === '') {
+                    resultadoTexto.innerHTML = 'Preencha ambos os campos para calcular o frete.';
+                    fecharResultadoButton.style.display = 'block';
+                } else if (!isValidCep(cepOrigemValue) || !isValidCep(cepDestinoValue)) {
+                    resultadoTexto.innerHTML = 'Insira um CEP válido.';
+                    fecharResultadoButton.style.display = 'block';
+                } else {
+                    resultadoTexto.innerHTML = '';  // Limpar o conteúdo anterior
+                    fecharResultadoButton.style.display = 'none';
+                }
+            });
 
-    fecharResultadoButton.addEventListener('click', function() {
-        resultadoTexto.innerHTML = '';
-        fecharResultadoButton.style.display = 'none';
-    });
-});
+            fecharResultadoButton.addEventListener('click', function() {
+                resultadoTexto.innerHTML = '';
+                fecharResultadoButton.style.display = 'none';
+            });
 
-</script>
+            function isValidCep(cep) {
+                return /^[0-9]{5}-[0-9]{3}$/.test(cep);
+            }
+        });
+    </script>
 </body>
 </html>
