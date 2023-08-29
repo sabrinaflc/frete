@@ -46,14 +46,18 @@
 
             cepOrigemInput.addEventListener('input', function(event) {
                 const input = event.target;
-                input.value = input.value.replace(/[^0-9-]/g, ''); // Remove non-numeric and non-hyphen characters
-                input.value = input.value.slice(0, 9); // Limit to 8 digits and 1 hyphen
+                const numericValue = input.value.replace(/[^\d]/g, ''); // Remover caracteres não numéricos
+                const formattedValue = formatCep(numericValue); // Formatar CEP
+
+                input.value = formattedValue;
             });
 
             cepDestinoInput.addEventListener('input', function(event) {
                 const input = event.target;
-                input.value = input.value.replace(/[^0-9-]/g, ''); // Remove non-numeric and non-hyphen characters
-                input.value = input.value.slice(0, 9); // Limit to 8 digits and 1 hyphen
+                const numericValue = input.value.replace(/[^\d]/g, ''); // Remover caracteres não numéricos
+                const formattedValue = formatCep(numericValue); // Formatar CEP
+
+                input.value = formattedValue;
             });
 
             calculateButton.addEventListener('click', function() {
@@ -79,6 +83,13 @@
 
             function isValidCep(cep) {
                 return /^[0-9]{5}-[0-9]{3}$/.test(cep);
+            }
+            function formatCep(cep) {
+                if (cep.length > 5) {
+                    return cep.slice(0, 5) + '-' + cep.slice(5, 8); // Inserir hífen após o quinto dígito
+                } else {
+                    return cep;
+                }
             }
         });
     </script>
