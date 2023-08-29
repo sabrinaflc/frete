@@ -109,6 +109,8 @@ footer {
 }
 
 footer img {
+    display: flex;
+    justify-content: center;
     width: 30px;
     height: 30px;
     margin: 0 10px;
@@ -142,7 +144,7 @@ footer img {
 
     footer img {
         margin: 10px;
-        margin-bottom: 67%;
+        margin-bottom: 157%;
     }
     
 }
