@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calculadora de Frete</title>
+    <title>Sabrina Lins | Calculadora de Frete</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="script.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add viewport meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="fav2.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
 
@@ -158,7 +159,7 @@
                     <label for="cep-destino">CEP de Destino:</label>
                     <input type="text" id="cep-destino" placeholder="Digite o CEP de destino" required>
 
-                    <button type="button" id="calcular-frete">Calcular Frete</button>
+                    <button type="button" id="calcular-frete" disabled>Calcular Frete</button>
                 </div>
             </div>
             <div id="resultado-frete"></div>
@@ -170,5 +171,26 @@
         <a href="https://www.instagram.com/ssabrinalins/" target="_blank"><img src="insta.png" alt="Instagram"></a>
         <a href="https://github.com/sabrinaflc" target="_blank"><img src="git.png" alt="GitHub"></a>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calculateButton = document.getElementById('calcular-frete');
+            const cepOrigemInput = document.getElementById('cep-origem');
+            const cepDestinoInput = document.getElementById('cep-destino');
+            const resultadoFrete = document.getElementById('resultado-frete');
+
+            calculateButton.addEventListener('click', function() {
+                const cepOrigemValue = cepOrigemInput.value.trim();
+                const cepDestinoValue = cepDestinoInput.value.trim();
+
+                if (cepOrigemValue === '' || cepDestinoValue === '') {
+                    resultadoFrete.style.display = 'block';
+                    resultadoFrete.textContent = 'Preencha ambos os campos para calcular o frete.';
+                } else {
+                    resultadoFrete.style.display = 'none'; 
+                }
+            });
+        });
+    </script>
 </body>
 </html>
