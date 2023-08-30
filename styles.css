@@ -11,6 +11,12 @@
     box-sizing: border-box;
 }
 
+.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
 body {
     background-color: #262626;
     display: flex;
