@@ -45,20 +45,24 @@
             const fecharResultadoButton = document.getElementById('fechar-resultado');
 
             cepOrigemInput.addEventListener('input', function(event) {
-                const input = event.target;
-                const numericValue = input.value.replace(/[^\d]/g, ''); // Remover caracteres não numéricos
-                const formattedValue = formatCep(numericValue); // Formatar CEP
+            const input = event.target;
+            const numericValue = input.value.replace(/[^\d]/g, ''); // Remover caracteres não numéricos
+            const formattedValue = formatCep(numericValue); // Formatar CEP
 
-                input.value = formattedValue;
-            });
+            input.value = formattedValue;
 
-            cepDestinoInput.addEventListener('input', function(event) {
-                const input = event.target;
-                const numericValue = input.value.replace(/[^\d]/g, ''); // Remover caracteres não numéricos
-                const formattedValue = formatCep(numericValue); // Formatar CEP
+            if (numericValue.length >= 8) {
+                cepDestinoInput.focus(); // Move o foco para o próximo input
+            }
+        });
 
-                input.value = formattedValue;
-            });
+        cepDestinoInput.addEventListener('input', function(event) {
+            const input = event.target;
+            const numericValue = input.value.replace(/[^\d]/g, ''); // Remover caracteres não numéricos
+            const formattedValue = formatCep(numericValue); // Formatar CEP
+
+            input.value = formattedValue;
+        });
 
             calculateButton.addEventListener('click', function() {
                 const cepOrigemValue = cepOrigemInput.value.trim();
