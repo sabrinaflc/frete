@@ -64,28 +64,31 @@
             input.value = formattedValue;
         });
 
-            calculateButton.addEventListener('click', function() {
-                const cepOrigemValue = cepOrigemInput.value.trim();
-                const cepDestinoValue = cepDestinoInput.value.trim();
+        calculateButton.addEventListener('click', function() {
+            const cepOrigemValue = cepOrigemInput.value.trim();
+            const cepDestinoValue = cepDestinoInput.value.trim();
 
-                if (cepOrigemValue === '' || cepDestinoValue === '') {
-                    resultadoTexto.innerHTML = 'Preencha ambos os campos para calcular o frete.';
-                    fecharResultadoButton.style.display = 'block';
-                } else if (!isValidCep(cepOrigemValue) || !isValidCep(cepDestinoValue)) {
-                    resultadoTexto.innerHTML = 'Insira um CEP válido.';
-                    fecharResultadoButton.style.display = 'block';
-                } else {
-                    resultadoTexto.innerHTML = '';  // Limpar o conteúdo anterior
-                    fecharResultadoButton.style.display = 'none';
-                }
-            });
-
-            fecharResultadoButton.addEventListener('click', function() {
-                resultadoTexto.innerHTML = '';
+            if (cepOrigemValue === '' || cepDestinoValue === '') {
+                resultadoTexto.innerHTML = 'Preencha ambos os campos para calcular o frete.';
+                fecharResultadoButton.style.display = 'block';
+            } else if (!isValidCep(cepOrigemValue) || !isValidCep(cepDestinoValue)) {
+                resultadoTexto.innerHTML = 'Insira um CEP válido.';
+                fecharResultadoButton.style.display = 'block';
+            } else {
+                resultadoTexto.innerHTML = '';  // Limpar o conteúdo anterior
                 fecharResultadoButton.style.display = 'none';
-                cepOrigemInput.value = ''; 
-                cepDestinoInput.value = '';
-            });
+                document.body.style.overflow = 'hidden'; // Impede a rolagem da página
+            }
+        });
+
+        fecharResultadoButton.addEventListener('click', function() {
+            resultadoTexto.innerHTML = '';
+            fecharResultadoButton.style.display = 'none';
+            cepOrigemInput.value = ''; 
+            cepDestinoInput.value = '';
+            document.body.style.overflow = 'auto'; // Restaura a rolagem da página
+        });
+
 
             function isValidCep(cep) {
                 return /^[0-9]{5}-[0-9]{3}$/.test(cep);
