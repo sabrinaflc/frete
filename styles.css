@@ -138,15 +138,17 @@ footer img {
     }
 
     footer {
-        flex-direction: column; /* Change flex-direction to column */
+        flex-direction: row;
         text-align: center;
     }
 
     footer img {
-        margin: 8px auto; /* Center align the images horizontally */
-        display: block; /* Make the images block-level elements */
+        footer img {
+        display: inline-block; 
         width: 30px;
         height: 30px;
         cursor: pointer;
+        position: relative; 
+        top:-120px; 
     }
 }
